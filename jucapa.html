@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Las computadoras: Una visión dentro de ellas</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  background: linear-gradient(to right, #e0e5ec, #f7f7f7);
+  position: relative;
+}
+
+/* Figuras geométricas simples */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+}
+
+.shape:nth-child(1) { width: 180px; height: 180px; background: #ffb6b9; top: 50px; left: 50px;}
+.shape:nth-child(2) { width: 120px; height: 120px; background: #8ac6d1; top: 250px; right: 80px;}
+.shape:nth-child(3) { width: 150px; height: 150px; background: #ffdac1; top: 400px; left: 300px;}
+
+/* Header */
+header {
+  background-color: #4a90e2;
+  color: white;
+  text-align: center;
+  padding: 50px 10px;
+  font-size: 32px;
+  font-weight: 600;
+  border-bottom: 3px solid #333;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background: #4a90e2;
+  color: white;
+  font-size: 14px;
+}
+
+/* Subtítulos centrados */
+h2.subtitulo {
+  text-align: center;
+  color: #333;
+  margin-top: 30px;
+}
+
+/* Párrafos */
+p {
+  text-align: justify;
+  max-width: 750px;
+  margin: 15px auto;
+  padding: 0 15px;
+}
+
+/* Imágenes */
+.galeria img {
+  width: 300px;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  border: 1px solid #999;
+  transition: transform 0.2s;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+/* Negritas estilo lista */
+strong {
+  display: block;
+  margin-top: 8px;
+}
+
+/* Popups simples */
+.popup {
+  position: relative;
+  cursor: help;
+  color: #e67e22;
+  text-decoration: underline dotted;
+}
+
+.popup .popuptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: #fff8dc;
+  color: #222;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 105%;
+  transform: translateY(-50%);
+  border: 1px solid #ccc;
+  font-size: 13px;
+}
+
+.popup:hover .popuptext {
+  visibility: visible;
+}
+
+/* Imágenes dentro del popup */
+.popup .popuptext img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 5px auto;
+  border-radius: 3px;
+}
+
+/* Video */
+.video {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+/* Música de fondo simple */
+audio { display: none; }
+</style>
+</head>
+
+<body>
+<!-- Figuras flotantes -->
+<div class="shape"></div>
+<div class="shape"></div>
+<div class="shape"></div>
+
+<header>Las computadoras: Una pequeña visión dentro de ellas</header>
+
+<!-- Música de fondo -->
+<audio controls loop>
+  <source src="https://www.myinstants.com/media/sounds/silksong-ost.mp3" type="audio/mpeg">
+</audio>
+
+<p class="intro">
+Hola! Bienvenido a nuestra web. ¿Alguna vez has imaginado cómo sería conocer más de tu computadora? Si la respuesta es sí (esperamos que sí, la verdad, es muy interesante!) este blog contiene todo lo que pudieras desear acerca de información! Para ser específicos, hoy exploraremos la mainboard y la BIOS/UEFI de las computadoras, asi que, si tienes ánimo e ímpetu de aprender, acompáñanos a descubrirlo. Prometemos que no te arrepentirás :).
+</p>
+
+<h2 class="subtitulo"><strong>¡Alto ahí! Ven y aprende sobre la Mainboard</strong></h2>
+<div class="galeria">
+<img src="A.png" alt="captura Cami">
+</div>
+<p>
+Primero que nada, debemos saber qué es una mainboard: “...es la tarjeta de circuito integrado principal del sistema informático, a la que se acoplan los demás componentes que constituyen el computador.”(<span class="popup">Equipo editorial, Etecé, 2025
+<span class="popuptext">Fuente: https://etecé.com/mainboard</span></span>).
+¿Deseas saber más sobre las Mainboards? <a href="https://concepto.de/placa-madre/" target="_blank">Conceptos</a>
+
+<strong>Memoria soldada + ranura SO-DIMM:</strong> ASUS X515EA tiene 8 GB en configuración híbrida (4 GB soldados y 4 GB en SO-DIMM). <a href="https://www.asus.com/ar/laptops/for-home/all-series/asus-x515-11th-gen-intel/techspec/" target="_blank">Más info</a>
+
+<strong>Almacenamiento M.2 NVMe + capacidad de expansión:</strong> SSD M.2 NVMe de 512 GB, expandible hasta 1 TB. <a href="https://www.iconicmicro.com/products/asus-x515ea-ss51-cb-15-6-fhd-led-laptop-intel-core-i5-1135g7-2-4-ghz-intel-iris-xe-graphics-8gb-ddr4-1tb-ssd-windows-11-home?_pos=1&_sid=d23b751bb&_ss=r" target="_blank">Más info</a>
+
+<strong>Puertos y conectividad:</strong> USB 3.2, USB tipo-C, HDMI, lector microSD, Wi-Fi 5 y Bluetooth. <a href="https://www.crucial.in/memory/ddr4/ct8g4sfra32a/ct20262843" target="_blank">Más info</a>
+</p>
+
+<h2 class="subtitulo"><strong>¿BIOS?¿UEFI? Tranqui, aquí te lo explicamos</strong></h2> <div class="galeria"> <img src="B.png" alt="captura Juli"> </div> <p> Ya que sabemos lo que es una mainboard, además de conocer algunos componentes y características interesantes, nos falta saber que es la BIOS y la UEFI. La BIOS es “software instalado por defecto en la placa madre que permite el arranque del ordenador” según Pandora Tech Blog. La UEFI es la versión más moderna. 
+¿Quieres saber más? Visita esto: <a href="https://pandorafms.com/blog/es/que-es-la-bios/" target="_blank">Más info</a>
+
+<strong>Thermal mode:</strong><br>
+Controla cómo el sistema gestiona la temperatura y los ventiladores. <span class="popup">Dato curioso
+<span class="popuptext">Existen modos Quiet, Balance y Performance.</span></span>
+</p>
+<p>
+<strong>Boot Device:</strong><br>
+Define desde qué dispositivo arrancará el sistema. <span class="popup">Dato curioso
+<span class="popuptext">Puede ser SSD, HDD, USB o red.</span></span>
+</p>
+<p>
+<strong>Graphic Device:</strong><br>
+Combina o usa solo la gráfica dedicada. <span class="popup">Dato curioso
+<span class="popuptext">Optimiza rendimiento y consumo de energía.</span></span>
+</p>
+<p>
+Esta información fue recopilada de estos links:<br>
+Por aquí! (<a href="https://www.lenovo.com/us/en/knowledgebase/understanding-laptop-thermal-management" target="_blank">Lenovo Thermal Management</a>)<br>
+También aquí! (<a href="https://uefi.org/specifications" target="_blank">UEFI Specifications</a>)
+</p>
+
+<h2 class="subtitulo">Para complementar información: ¡un video!</h2>
+<div class="video">
+    <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/WSCvbZxMXMw"
+    title="Video de ejemplo" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+</div>
+
+<!-- Botón para mostrar explicación -->
+<div style="text-align:center; margin:30px 0;">
+  <button id="btnServidor" style="padding:10px 20px; font-size:16px; cursor:pointer; border-radius:5px; background-color:#4a90e2; color:white; border:none;">
+    ¡Hey! ¡psst! ¿quieres saber como levantamos el servidor?
+  </button>
+</div>
+
+<!-- Contenedor de la explicación oculto inicialmente -->
+<div id="explicacionServidor" style="display:none; max-width:700px; margin:0 auto; padding:15px; background-color:#f7f7f7; border:1px solid #ccc; border-radius:5px; font-size:15px; line-height:1.5; color:#222;">
+  <strong>Puesta en marcha del servidor web local:</strong>
+  <p>Para visualizar y probar la página web en mi ordenador (Pau hizo esto, por ende está en su ordenador), utilicé XAMPP, que incluye Apache, un servidor web que interpreta los archivos HTML, CSS, imágenes y otros recursos.(gracias profe Tito por proporcionar el link).</p>
+  <p><strong>Pasos realizados:</strong></p>
+  <ol>
+    <li><strong>Instalación de XAMPP:</strong> Descargué e instalé XAMPP seleccionando Apache como componente principal.</li>
+    <li><strong>Preparación del proyecto:</strong> Coloqué todos los archivos (jucapa.html, imágenes y recursos) dentro de una carpeta en <code>htdocs</code>.</li>
+    <li><strong>Arranque del servidor:</strong> Abrí XAMPP Control Panel y presioné Start en Apache. Esto permitió que el ordenador actuara como servidor web local.</li>
+    <li><strong>Acceso a la página:</strong> Abrí el navegador y escribí <code>http://localhost/jucapa.html</code>, visualizando correctamente todos los elementos.</li>
+  </ol>
+  <p>De esta manera, se pudo probar la página web sin necesidad de subirla a un servidor online, y cualquier persona que copie la carpeta a su <code>htdocs</code> podrá abrirla con localhost.</p>
+</div>
+
+<script>
+  const btn = document.getElementById('btnServidor');
+  const exp = document.getElementById('explicacionServidor');
+
+  btn.addEventListener('click', () => {
+    if(exp.style.display === 'none') {
+      exp.style.display = 'block';
+      btn.textContent = 'Ocultar explicación';
+    } else {
+      exp.style.display = 'none';
+      btn.textContent = 'Explicación del servidor web local';
+    }
+  });
+</script>
+
+<footer>Creado por Paula Cevallos, Camila Paucar y Julián Villalba</footer>
+</body>
+</html>
