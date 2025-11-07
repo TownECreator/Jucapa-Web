@@ -937,33 +937,35 @@ Main: muestra información básica del sistema como el procesador, la cantidad d
         <img src="B.png" alt="BIOS/UEFI" class="content-img">
     </section>
 
-    <!-- Video Section reemplazada por Mini Juego Visual -->
-<section>
-    <h2 class="section-title">🎮 PARA COMPLEMENTAR INFORMACIÓN: ¡UN MINI JUEGO!</h2>
-    <div class="video-container" style="padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #00ffff;">
 
-        <div id="quizCard" style="width: 100%; max-width: 700px; background: #0a0015; border: 3px solid #00ffff; border-radius: 25px; padding: 30px; box-shadow: 0 0 30px #00ffff, 0 0 60px #b794f6; text-align: center; perspective: 1000px;">
-            <div id="cardInner" style="transition: transform 0.8s; transform-style: preserve-3d;">
-                <div id="cardFront" style="position: relative; backface-visibility: hidden;">
-                    <p id="question" style="font-size: 1.4em; margin-bottom: 20px;"></p>
-                    <div id="options" style="display: flex; flex-direction: column; gap: 15px;"></div>
-                </div>
-                <div id="cardBack" style="position: absolute; top: 0; left: 0; backface-visibility: hidden; transform: rotateY(180deg); color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 1.3em; padding: 20px;"></div>
-            </div>
-        </div>
 
-        <p id="scoreDisplay" style="margin-top: 20px; font-weight: bold;">Puntos: 0</p>
-        <button id="nextBtn" style="margin-top: 20px; padding: 10px 20px; background: #b794f6; color: #0a0015; border: none; border-radius: 10px; cursor: pointer; display: none;">Siguiente</button>
+	
+<!-- Mini Juego Visual -->
+<section style="padding: 50px 20px; background: #0a0015; color: #00ffff; text-align: center;">
+  <h2 style="font-size: 2em; margin-bottom: 30px;">🎮 PARA COMPLEMENTAR INFORMACIÓN: ¡UN MINI JUEGO!</h2>
 
+  <div id="quizContainer" style="max-width: 700px; margin: 0 auto; perspective: 1000px;">
+    <div id="quizCard" style="background: #0a0015; border: 3px solid #00ffff; border-radius: 25px; padding: 30px; box-shadow: 0 0 30px #00ffff, 0 0 60px #b794f6; transition: transform 0.8s; transform-style: preserve-3d; position: relative;">
+      <!-- Frente de la tarjeta -->
+      <div id="cardFront" style="backface-visibility: hidden;">
+        <p id="question" style="font-size: 1.4em; margin-bottom: 20px;"></p>
+        <div id="options" style="display: flex; flex-direction: column; gap: 15px;"></div>
+      </div>
+      <!-- Reverso de la tarjeta -->
+      <div id="cardBack" style="position: absolute; top: 0; left: 0; backface-visibility: hidden; transform: rotateY(180deg); color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 1.3em; padding: 20px; border-radius: 25px;"></div>
     </div>
+
+    <p id="scoreDisplay" style="margin-top: 20px; font-weight: bold; font-size: 1.2em;">Puntos: 0</p>
+    <button id="nextBtn" style="margin-top: 20px; padding: 10px 20px; background: #b794f6; color: #0a0015; border: none; border-radius: 10px; cursor: pointer; display: none;">Siguiente</button>
+  </div>
 </section>
 
 <script>
 const quizData = [
-    {question: "¿Qué componente principal conecta todos los demás en la computadora?", options: ["CPU","Mainboard","GPU","RAM"], answer: "Mainboard"},
-    {question: "¿Cuál es la función principal de la BIOS?", options: ["Almacenar datos","Permitir el arranque del ordenador","Mostrar gráficos","Controlar Wi-Fi"], answer: "Permitir el arranque del ordenador"},
-    {question: "¿Qué tipo de almacenamiento usa ASUS X515EA?", options: ["HDD SATA","SSD M.2 NVMe","Disquete","Tarjeta SD"], answer: "SSD M.2 NVMe"},
-    {question: "¿Qué puertos incluye la mainboard de ejemplo?", options: ["USB 3.2, USB-C, HDMI","Solo USB 2.0","VGA y PS/2","Ethernet únicamente"], answer: "USB 3.2, USB-C, HDMI"}
+  {question: "¿Qué componente principal conecta todos los demás en la computadora?", options: ["CPU","Mainboard","GPU","RAM"], answer: "Mainboard"},
+  {question: "¿Cuál es la función principal de la BIOS?", options: ["Almacenar datos","Permitir el arranque del ordenador","Mostrar gráficos","Controlar Wi-Fi"], answer: "Permitir el arranque del ordenador"},
+  {question: "¿Qué tipo de almacenamiento usa ASUS X515EA?", options: ["HDD SATA","SSD M.2 NVMe","Disquete","Tarjeta SD"], answer: "SSD M.2 NVMe"},
+  {question: "¿Qué puertos incluye la mainboard de ejemplo?", options: ["USB 3.2, USB-C, HDMI","Solo USB 2.0","VGA y PS/2","Ethernet únicamente"], answer: "USB 3.2, USB-C, HDMI"}
 ];
 
 let currentQuestion = 0;
@@ -971,68 +973,75 @@ let score = 0;
 
 const questionEl = document.getElementById('question');
 const optionsEl = document.getElementById('options');
-const cardInner = document.getElementById('cardInner');
+const cardInner = document.getElementById('quizCard');
 const cardBack = document.getElementById('cardBack');
 const nextBtn = document.getElementById('nextBtn');
 const scoreDisplay = document.getElementById('scoreDisplay');
 
 function loadQuestion() {
-    cardInner.style.transform = "rotateY(0deg)";
-    cardBack.textContent = "";
-    nextBtn.style.display = "none";
-    const q = quizData[currentQuestion];
-    questionEl.textContent = q.question;
-    optionsEl.innerHTML = '';
-    q.options.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.textContent = opt;
-        btn.style.padding = "10px 20px";
-        btn.style.border = "none";
-        btn.style.borderRadius = "10px";
-        btn.style.cursor = "pointer";
-        btn.style.background = "#0a0015";
-        btn.style.color = "#00ffff";
-        btn.style.textAlign = "center";
-        btn.style.fontWeight = "bold";
-        btn.addEventListener('click', () => checkAnswer(opt, btn));
-        optionsEl.appendChild(btn);
-    });
+  cardInner.style.transform = "rotateY(0deg)";
+  cardBack.textContent = "";
+  nextBtn.style.display = "none";
+
+  const q = quizData[currentQuestion];
+  questionEl.textContent = q.question;
+  optionsEl.innerHTML = '';
+
+  q.options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.textContent = opt;
+    btn.style.padding = "10px 20px";
+    btn.style.border = "none";
+    btn.style.borderRadius = "10px";
+    btn.style.cursor = "pointer";
+    btn.style.background = "#0a0015";
+    btn.style.color = "#00ffff";
+    btn.style.fontWeight = "bold";
+    btn.addEventListener('mouseenter', () => btn.style.background = "#00ffff" , btn.style.color="#0a0015");
+    btn.addEventListener('mouseleave', () => btn.style.background = "#0a0015", btn.style.color="#00ffff");
+    btn.addEventListener('click', () => checkAnswer(opt, btn));
+    optionsEl.appendChild(btn);
+  });
 }
 
 function checkAnswer(selected, btn) {
-    const correct = quizData[currentQuestion].answer;
-    if (selected === correct) {
-        score++;
-        cardBack.style.background = "#0a0015";
-        cardBack.style.color = "#00ff00";
-        cardBack.textContent = "✅ ¡Correcto!";
-    } else {
-        cardBack.style.background = "#0a0015";
-        cardBack.style.color = "#ff0000";
-        cardBack.textContent = `❌ Incorrecto! La respuesta correcta es: ${correct}`;
-    }
-    scoreDisplay.textContent = "Puntos: " + score;
-    cardInner.style.transform = "rotateY(180deg)";
-    nextBtn.style.display = "inline-block";
-    Array.from(optionsEl.children).forEach(b => b.disabled = true);
+  const correct = quizData[currentQuestion].answer;
+  if (selected === correct) {
+    score++;
+    cardBack.style.background = "#0a0015";
+    cardBack.style.color = "#00ff00";
+    cardBack.textContent = "✅ ¡Correcto!";
+  } else {
+    cardBack.style.background = "#0a0015";
+    cardBack.style.color = "#ff0000";
+    cardBack.textContent = `❌ Incorrecto! La respuesta correcta es: ${correct}`;
+  }
+  scoreDisplay.textContent = "Puntos: " + score;
+  cardInner.style.transform = "rotateY(180deg)";
+  nextBtn.style.display = "inline-block";
+
+  Array.from(optionsEl.children).forEach(b => b.disabled = true);
 }
 
 nextBtn.addEventListener('click', () => {
-    currentQuestion++;
-    if (currentQuestion < quizData.length) {
-        loadQuestion();
-    } else {
-        questionEl.textContent = "¡Juego terminado! 🎉";
-        optionsEl.innerHTML = "";
-        cardInner.style.transform = "rotateY(0deg)";
-        cardBack.textContent = `Tu puntaje final es: ${score} de ${quizData.length}`;
-        nextBtn.style.display = "none";
-    }
+  currentQuestion++;
+  if (currentQuestion < quizData.length) {
+    loadQuestion();
+  } else {
+    questionEl.textContent = "¡Juego terminado! 🎉";
+    optionsEl.innerHTML = "";
+    cardInner.style.transform = "rotateY(0deg)";
+    cardBack.textContent = `Tu puntaje final es: ${score} de ${quizData.length}`;
+    nextBtn.style.display = "none";
+  }
 });
 
 loadQuestion();
 </script>
 
+
+	
+   
 
 
     <!-- Footer -->
@@ -1128,6 +1137,7 @@ loadQuestion();
     </script>
 </body>
 </html>
+
 
 
 
