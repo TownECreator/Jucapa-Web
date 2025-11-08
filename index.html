@@ -818,6 +818,40 @@
             ¡Hola! Bienvenido a nuestra web. ¿Alguna vez has imaginado cómo sería conocer más de tu computadora? Si la respuesta es sí (esperamos que sí, la verdad, es muy interesante!) este blog contiene todo lo que pudieras desear acerca de información! Para ser específicos, hoy exploraremos la mainboard y la BIOS/UEFI de las computadoras, así que, si tienes ánimo e ímpetu de aprender, acompáñanos a descubrirlo. Prometemos que no te arrepentirás :).
         </p>
     </section>
+  <!-- Servidor Section -->
+    <section id="servidor">
+        <h2 class="section-title">⚡ PUESTA EN MARCHA DEL SERVIDOR WEB LOCAL</h2>
+        
+        <p>
+            Para visualizar y probar la página web en mi ordenador (Pau hizo esto, por ende está en su ordenador), utilicé XAMPP, que incluye Apache, un servidor web que interpreta los archivos HTML, CSS, imágenes y otros recursos. (gracias profe Tito por proporcionar el link).
+        </p>
+
+        <div class="steps-list">
+            <strong>Pasos realizados:</strong>
+            <ol>
+                <li>
+                    <strong>Instalación de XAMPP:</strong> Descargué e instalé XAMPP seleccionando Apache como componente principal.
+                    <img src="1.png" alt="Instalación XAMPP" class="step-img">
+                </li>
+                <li>
+                    <strong>Preparación del proyecto:</strong> Coloqué todos los archivos (jucapa.html, imágenes y recursos) dentro de una carpeta en `htdocs`.
+                    <img src="P.png" alt="Preparación del proyecto" class="step-img">
+                </li>
+                <li>
+                    <strong>Arranque del servidor:</strong> Abrí XAMPP Control Panel y presioné Start en Apache. Esto permitió que el ordenador actuara como servidor web local.
+                    <img src="3.png" alt="Arranque del servidor" class="step-img">
+                </li>
+                <li>
+                    <strong>Acceso a la página:</strong> Abrí el navegador y escribí `http://localhost/jucapa.html`, visualizando correctamente todos los elementos.
+                    <img src="4.png" alt="Página funcionando" class="step-img">
+                </li>
+            </ol>
+        </div>
+
+        <p>
+            De esta manera, se pudo probar la página web sin necesidad de subirla a un servidor online, y cualquier persona que copie la carpeta a su `htdocs` podrá abrirla con localhost.
+        </p>
+    </section>
 
 <!-- MainBoard Section -->
 <section id="mainboard">
@@ -1136,6 +1170,7 @@ loadQuestion();
     </script>
 </body>
 </html>
+
 
 
 
