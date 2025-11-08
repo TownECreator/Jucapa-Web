@@ -11,6 +11,32 @@
             padding: 0;
             box-sizing: border-box;
         }
+/* Más info dentro de cards, responsive */
+.info-card .more-info {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #00ffff;
+    color: #0a0015;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.info-card .more-info:hover {
+    background: #b794f6;
+    color: #fff;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .info-card .more-info {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -1136,6 +1162,7 @@ loadQuestion();
     </script>
 </body>
 </html>
+
 
 
 
