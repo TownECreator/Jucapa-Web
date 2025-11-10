@@ -1,0 +1,13 @@
+{
+  "name": "Python Codespace",
+  "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "postCreateCommand": "pip install -r requirements.txt || true",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python"]
+    }
+  }
+}
